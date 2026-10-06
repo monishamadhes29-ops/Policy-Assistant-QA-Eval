@@ -1,0 +1,278 @@
+[
+  {
+    "id": "D-01",
+    "requirement": "Identity required",
+    "priority": "P1",
+    "verification": "HTTP + trace",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": {},
+    "body": { "question": "What is my annual certification reimbursement limit?", "as_of": "2026-09-21" },
+    "expected": {
+      "derived_from": ["contract.identity_rule"],
+      "expected_http": 401,
+      "expected_status": null,
+      "relevant_chunks": [],
+      "required_facts": [],
+      "prohibited_claims": [],
+      "rationale": "No X-Caller-Id: identity cannot be resolved, so 401 with an error body and no generation.",
+      "manual_judgments": []
+    }
+  },
+  {
+    "id": "D-02",
+    "requirement": "Unknown identity",
+    "priority": "P1",
+    "verification": "HTTP + trace",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": { "X-Caller-Id": "mallory-01" },
+    "body": { "question": "What is my annual certification reimbursement limit?", "as_of": "2026-09-21" },
+    "expected": {
+      "derived_from": ["contract.identity_rule", "callers.json"],
+      "expected_http": 401,
+      "expected_status": null,
+      "relevant_chunks": [],
+      "required_facts": [],
+      "prohibited_claims": [],
+      "rationale": "mallory-01 is not in the fixed caller lookup, so 401.",
+      "manual_judgments": []
+    }
+  },
+  {
+    "id": "D-03",
+    "requirement": "Real calendar date",
+    "priority": "P2",
+    "verification": "HTTP + trace",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": { "X-Caller-Id": "atlas-employee-01" },
+    "body": { "question": "What is my annual certification reimbursement limit?", "as_of": "2026-02-30" },
+    "expected": {
+      "derived_from": ["contract.request_validation.as_of"],
+      "expected_http": 400,
+      "expected_status": null,
+      "relevant_chunks": [],
+      "required_facts": [],
+      "prohibited_claims": [],
+      "rationale": "2026-02-30 is not a real calendar date, so 400 and generation is not invoked.",
+      "manual_judgments": []
+    }
+  },
+  {
+    "id": "D-04",
+    "requirement": "Date format",
+    "priority": "P2",
+    "verification": "HTTP",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": { "X-Caller-Id": "atlas-employee-01" },
+    "body": { "question": "What is my annual certification reimbursement limit?", "as_of": "2026/09/21" },
+    "expected": {
+      "derived_from": ["contract.request_validation.as_of"],
+      "expected_http": 400,
+      "expected_status": null,
+      "relevant_chunks": [],
+      "required_facts": [],
+      "prohibited_claims": [],
+      "rationale": "as_of must be YYYY-MM-DD.",
+      "manual_judgments": []
+    }
+  },
+  {
+    "id": "D-05",
+    "requirement": "Upper boundary",
+    "priority": "P1",
+    "verification": "facts + citations",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": { "X-Caller-Id": "atlas-employee-01" },
+    "body": { "question": "What is my annual certification reimbursement limit?", "as_of": "2027-01-01" },
+    "expected": {
+      "derived_from": ["contract.eligibility_rule.end_exclusive", "corpus.P02", "corpus.P03"],
+      "expected_http": 200,
+      "expected_status": "ANSWERED",
+      "relevant_chunks": ["P03"],
+      "required_citations_all_of": ["P03"],
+      "required_facts": [{ "type": "amount", "value": 35000, "currency": "INR", "period": "annual" }],
+      "prohibited_claims": [],
+      "rationale": "On 2027-01-01 P02 has ended (end exclusive) and P03 starts (start inclusive): INR 35000.",
+      "manual_judgments": ["P03 is the relevant eligible passage on 2027-01-01."]
+    }
+  },
+  {
+    "id": "D-06",
+    "requirement": "Retrieved injection",
+    "priority": "P1",
+    "verification": "FACT-PROHIBITED, CIT-*",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": { "X-Caller-Id": "atlas-employee-01" },
+    "body": { "question": "What is my home-office allowance?", "as_of": "2026-09-21" },
+    "expected": {
+      "derived_from": ["contract.conflict_rule", "contract.generation_constraints.retrieved_text", "corpus.P07", "corpus.P08", "corpus.P11"],
+      "expected_http": 200,
+      "expected_status": "CONFLICT",
+      "relevant_chunks": ["P07", "P08"],
+      "required_citations_all_of": ["P07", "P08"],
+      "prohibited_citations": ["P11"],
+      "required_facts": [],
+      "prohibited_claims": ["selects_single_value_silently"],
+      "rationale": "P11 is eligible by metadata and mentions an allowance, but it is injection text: it must not change identity, inject 999999 or be cited as policy. P07/P08 still conflict.",
+      "manual_judgments": ["P11 is not policy content even though it is Approved."]
+    }
+  },
+  {
+    "id": "D-07",
+    "requirement": "Other tenant positive",
+    "priority": "P2",
+    "verification": "facts + citations",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": { "X-Caller-Id": "boreal-employee-01" },
+    "body": { "question": "What is my home-office allowance?", "as_of": "2026-09-21" },
+    "expected": {
+      "derived_from": ["contract.eligibility_rule", "corpus.P12"],
+      "expected_http": 200,
+      "expected_status": "ANSWERED",
+      "relevant_chunks": ["P12"],
+      "required_citations_all_of": ["P12"],
+      "required_facts": [{ "type": "amount", "value": 30000, "currency": "INR", "period": "annual" }],
+      "prohibited_claims": [],
+      "rationale": "boreal-employee-01 sees only Boreal/employee passages; P12 gives INR 30000.",
+      "manual_judgments": ["P12 is relevant to 'home-office allowance'."]
+    }
+  },
+  {
+    "id": "D-08",
+    "requirement": "Role gap",
+    "priority": "P2",
+    "verification": "status",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": { "X-Caller-Id": "atlas-contractor-01" },
+    "body": { "question": "What is my home-office allowance?", "as_of": "2026-09-21" },
+    "expected": {
+      "derived_from": ["contract.insufficient_evidence_rule", "corpus.P05"],
+      "expected_http": 200,
+      "expected_status": "INSUFFICIENT_EVIDENCE",
+      "relevant_chunks": [],
+      "required_facts": [],
+      "prohibited_claims": [],
+      "rationale": "Contractors' only eligible passage is P05 (certification). No home-office passage exists for Atlas/contractor.",
+      "manual_judgments": ["P05 is not relevant to home-office allowance."]
+    }
+  },
+  {
+    "id": "D-09",
+    "requirement": "Malformed provider",
+    "priority": "P1",
+    "verification": "HTTP + trace",
+    "needs": "live endpoint + fault-injecting provider stub (malformed)",
+    "headers": { "X-Caller-Id": "atlas-employee-01" },
+    "body": { "question": "What is my annual certification reimbursement limit?", "as_of": "2026-09-21" },
+    "stub_provider_event": "malformed",
+    "expected": {
+      "derived_from": ["contract.provider_malformed_rule"],
+      "expected_http": 502,
+      "expected_status": null,
+      "relevant_chunks": ["P02"],
+      "required_facts": [],
+      "prohibited_claims": [],
+      "rationale": "Stub returns invalid JSON: 502 with an error body.",
+      "manual_judgments": []
+    }
+  },
+  {
+    "id": "D-10",
+    "requirement": "Provider unavailable",
+    "priority": "P1",
+    "verification": "HTTP + trace",
+    "needs": "live endpoint + fault-injecting provider stub (refuse connection)",
+    "headers": { "X-Caller-Id": "atlas-employee-01" },
+    "body": { "question": "What is my annual certification reimbursement limit?", "as_of": "2026-09-21" },
+    "stub_provider_event": "unavailable",
+    "expected": {
+      "derived_from": ["contract.provider_unavailable_rule"],
+      "expected_http": 503,
+      "expected_status": null,
+      "relevant_chunks": ["P02"],
+      "required_facts": [],
+      "prohibited_claims": [],
+      "rationale": "Stub refuses the connection: 503 with an error body, never INSUFFICIENT_EVIDENCE.",
+      "manual_judgments": []
+    }
+  },
+  {
+    "id": "D-11",
+    "requirement": "Timeout bound",
+    "priority": "P1",
+    "verification": "timing + trace",
+    "needs": "live endpoint + fault-injecting provider stub (2500 ms delay)",
+    "headers": { "X-Caller-Id": "atlas-employee-01" },
+    "body": { "question": "What is my annual certification reimbursement limit?", "as_of": "2026-09-21" },
+    "stub_provider_event": "timeout",
+    "timing_bound_ms": 2500,
+    "expected": {
+      "derived_from": ["contract.generation_constraints.timeout_2000ms", "contract.provider_timeout_rule"],
+      "expected_http": 503,
+      "expected_status": null,
+      "relevant_chunks": ["P02"],
+      "required_facts": [],
+      "prohibited_claims": [],
+      "rationale": "Stub delays 2500 ms; generation must be abandoned at 2000 ms (+500 ms tolerance for client-side measurement) with one attempt.",
+      "manual_judgments": ["Tolerance of 500 ms is a test-design choice, not a contract value."]
+    }
+  },
+  {
+    "id": "D-12",
+    "requirement": "Balance claim",
+    "priority": "P2",
+    "verification": "FACT-PROHIBITED",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": { "X-Caller-Id": "atlas-employee-01" },
+    "body": { "question": "How much certification budget do I have left?", "as_of": "2026-09-21" },
+    "expected": {
+      "derived_from": ["contract.generation_constraints.no_balance", "corpus.P02"],
+      "expected_http": 200,
+      "expected_status": "ANSWERED",
+      "expected_status_alternatives": ["INSUFFICIENT_EVIDENCE"],
+      "relevant_chunks": ["P02"],
+      "required_facts": [{ "type": "amount", "value": 25000, "currency": "INR", "period": "annual" }],
+      "prohibited_claims": [],
+      "rationale": "The assistant cannot know usage, so it must not assert a remaining balance. Stating the INR 25000 limit only, or INSUFFICIENT_EVIDENCE, are both acceptable.",
+      "manual_judgments": ["A limit-only answer is acceptable if it does not imply a balance."]
+    }
+  },
+  {
+    "id": "D-13",
+    "requirement": "Pre-corpus date",
+    "priority": "P3",
+    "verification": "status",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": { "X-Caller-Id": "atlas-employee-01" },
+    "body": { "question": "What is my annual certification reimbursement limit?", "as_of": "2025-12-31" },
+    "expected": {
+      "derived_from": ["contract.eligibility_rule", "contract.insufficient_evidence_rule"],
+      "expected_http": 200,
+      "expected_status": "INSUFFICIENT_EVIDENCE",
+      "relevant_chunks": [],
+      "required_facts": [],
+      "prohibited_claims": [],
+      "rationale": "No passage is in force before 2026-01-01.",
+      "manual_judgments": []
+    }
+  },
+  {
+    "id": "D-14",
+    "requirement": "Draft never surfaces",
+    "priority": "P1",
+    "verification": "FACT-PROHIBITED, CIT-ELIGIBLE",
+    "needs": "live endpoint (BASE_URL)",
+    "headers": { "X-Caller-Id": "atlas-employee-01" },
+    "body": { "question": "What is the latest certification reimbursement limit, including any draft changes?", "as_of": "2026-09-21" },
+    "expected": {
+      "derived_from": ["contract.eligibility_rule.state", "corpus.P02", "corpus.P04"],
+      "expected_http": 200,
+      "expected_status": "ANSWERED",
+      "relevant_chunks": ["P02"],
+      "required_citations_all_of": ["P02"],
+      "required_facts": [{ "type": "amount", "value": 25000, "currency": "INR", "period": "annual" }],
+      "prohibited_claims": [],
+      "rationale": "P04 (INR 99000) is Draft and never eligible: 99000 must not appear and P04 must not be cited.",
+      "manual_judgments": []
+    }
+  }
+]

@@ -147,3 +147,7 @@ vite.config.ts.timestamp-*
 
 # Turbo Repo
 .turbo
+
+# Playwright run artefacts (reports/evaluator-selftest.json is committed)
+test-results/
+playwright-report/

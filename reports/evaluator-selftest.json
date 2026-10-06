@@ -1,0 +1,5193 @@
+{
+  "config": {
+    "argv": [
+      "C:\\Program Files\\nodejs\\node.exe",
+      "C:\\Users\\Monisha\\Documents\\HR_Policy_AI\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--project=evaluator"
+    ],
+    "configFile": "C:\\Users\\Monisha\\Documents\\HR_Policy_AI\\playwright.config.ts",
+    "rootDir": "C:/Users/Monisha/Documents/HR_Policy_AI",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 4
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Monisha/Documents/HR_Policy_AI/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "evaluator",
+        "name": "evaluator",
+        "testDir": "C:/Users/Monisha/Documents/HR_Policy_AI/tests/unit",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      },
+      {
+        "outputDir": "C:/Users/Monisha/Documents/HR_Policy_AI/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 4
+        },
+        "id": "live",
+        "name": "live",
+        "testDir": "C:/Users/Monisha/Documents/HR_Policy_AI/tests/live",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 10000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "reports/evaluator-selftest.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.63.0",
+    "workers": 4,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "tests\\unit\\checks.citations.spec.ts",
+      "file": "tests/unit/checks.citations.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "CIT-ELIGIBLE",
+          "file": "tests/unit/checks.citations.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PASS when every citation is eligible",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 19,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.657Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-46885ac72956dc92037c",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 7,
+              "column": 7
+            },
+            {
+              "title": "FAIL for another tenant’s passage, with the reason",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.719Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-5a97dd33aa39bf5a0b60",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 11,
+              "column": 7
+            },
+            {
+              "title": "FAIL for an unknown chunk id",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.747Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-b155c167332408c5e21b",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "NOT_EVALUATED when the eligible set is undefined (unknown caller)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.764Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-893665f88fac3fe45f0b",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 21,
+              "column": 7
+            },
+            {
+              "title": "not emitted when there are no citations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.783Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-f2f90c01c70f4eade3b8",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 26,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "CIT-QUOTE",
+          "file": "tests/unit/checks.citations.spec.ts",
+          "line": 31,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PASS when the quote is the passage text",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.800Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-f1e18fbe695d3b3652c2",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 32,
+              "column": 7
+            },
+            {
+              "title": "FAIL when the quote is not in the passage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.815Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-895b84d03c2f1e786c9c",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 36,
+              "column": 7
+            },
+            {
+              "title": "FAIL when the quote is empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.831Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-82cff1e61dd7e840b53a",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "FAIL for an unknown chunk (quote expands to null)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.872Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-17c87726f5f6a6b05474",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "accepts Unicode/whitespace differences",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.888Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-cd5773abeafbc7b33055",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 49,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "CIT-REQUIRED",
+          "file": "tests/unit/checks.citations.spec.ts",
+          "line": 54,
+          "column": 6,
+          "specs": [
+            {
+              "title": "FAIL when one side of a conflict is missing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.906Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-18d629c25b4ab106c1b4",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "PASS regardless of citation order",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.936Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-476134a27cb5ab1106b3",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 59,
+              "column": 7
+            },
+            {
+              "title": "any_of: one of the listed citations is enough",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.951Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-bee7190ddcc144c28913",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 63,
+              "column": 7
+            },
+            {
+              "title": "prohibited_citations: eligible injection text must not be cited",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.962Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-d2a8f2151656fbb4a394",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 68,
+              "column": 7
+            },
+            {
+              "title": "not emitted when the expected entry lists no citation requirements",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.977Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "4b84ad521bd5a4ae3376-b717cf57619a92e9efc5",
+              "file": "tests/unit/checks.citations.spec.ts",
+              "line": 73,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\checks.context.spec.ts",
+      "file": "tests/unit/checks.context.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "CTX-ELIGIBLE",
+          "file": "tests/unit/checks.context.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PASS when only eligible passages reach generation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 20,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.657Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "72eb916b07183bcf2b74-485b4d67334fbc115e84",
+              "file": "tests/unit/checks.context.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "FAIL when an ineligible passage is sent even though the answer is correct",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.724Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "72eb916b07183bcf2b74-d1eccf6b938395eadd8f",
+              "file": "tests/unit/checks.context.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "FAIL when a Draft passage is sent",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.749Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "72eb916b07183bcf2b74-3a7caa6d86e32c0692b4",
+              "file": "tests/unit/checks.context.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "NOT_EVALUATED when trace.model_context_ids is missing, and the recording is downgraded",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.768Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "72eb916b07183bcf2b74-b29e7fb9088091873cdb",
+              "file": "tests/unit/checks.context.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "unknown caller: any context is a leak; empty context passes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.780Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "72eb916b07183bcf2b74-b75fc4cefed4cd9da67d",
+              "file": "tests/unit/checks.context.spec.ts",
+              "line": 26,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\checks.contract.spec.ts",
+      "file": "tests/unit/checks.contract.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HTTP-OUTCOME",
+          "file": "tests/unit/checks.contract.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PASS when HTTP and status match",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 15,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.690Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-f4c22d5b64a7daa3d078",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "FAIL when status differs",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.758Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-a1dfa00fefa7996c7043",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "FAIL when an error is expected but a business body is returned",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.781Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-0380a5afce10a1a09df2",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "FAIL when error code differs from the expected code",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.806Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-0ad4e9f4cd1fd4b714c2",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 19,
+              "column": 7
+            },
+            {
+              "title": "accepts a documented alternative status",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.822Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-18a003c0dddd85c4569d",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 27,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "SHAPE-BODY",
+          "file": "tests/unit/checks.contract.spec.ts",
+          "line": 34,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PASS for a well-formed ANSWERED body",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.851Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-c5bef2301ed2e272c9c3",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 35,
+              "column": 7
+            },
+            {
+              "title": "FAIL: ANSWERED with no citations",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.875Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-5ed5a6078d30795387ed",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "FAIL: INSUFFICIENT_EVIDENCE with a non-null answer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 7,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.888Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-033e9971950aca3471c0",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 43,
+              "column": 7
+            },
+            {
+              "title": "FAIL: CONFLICT with only one citation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.927Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-3a639fc6e0064c2688de",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 47,
+              "column": 7
+            },
+            {
+              "title": "FAIL: error body without a non-empty code",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.943Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-ce5f199ff3c38d027412",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "PASS: well-formed error body",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.956Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "564a44c297cb21f1152b-f85e79ecebb08cddf252",
+              "file": "tests/unit/checks.contract.spec.ts",
+              "line": 56,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\checks.facts.spec.ts",
+      "file": "tests/unit/checks.facts.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "FACT-REQUIRED",
+          "file": "tests/unit/checks.facts.spec.ts",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PASS with amount and period present",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 20,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.671Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-e2fd741dcb6f8211b965",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 5,
+              "column": 7
+            },
+            {
+              "title": "FAIL with the wrong amount; amount and period are separate sub-results",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.736Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-5097bef09af808b67f54",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "FAIL when the period wording is missing, reported as its own sub-result",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.760Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-7a6656a968be979c3208",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "FAIL when the answer is null but an answer was expected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 10,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.774Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-c9ead1047ffb38891305",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "NOT_EVALUATED when no amount can be parsed",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.798Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-e69babde2445ee572fa5",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "not emitted when no ANSWERED status is expected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.818Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-a7bf414720c2238ba3cb",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 31,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "FACT-PROHIBITED",
+          "file": "tests/unit/checks.facts.spec.ts",
+          "line": 36,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PASS for a plain limit answer",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 7,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.834Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-122fb8a467a0deadd478",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 40,
+              "column": 7
+            },
+            {
+              "title": "claim_approval detected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.861Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-73250893cc20a4bfb36a",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 44,
+              "column": 7
+            },
+            {
+              "title": "payment_guarantee detected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.886Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-0542cf0d591014488e74",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 50,
+              "column": 7
+            },
+            {
+              "title": "remaining_balance detected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 7,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.901Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-1334557d59782cfeb115",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "injected_value: 999999 and tenant switch detected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.924Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-615b37ddda9b91000c5e",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 59,
+              "column": 7
+            },
+            {
+              "title": "foreign_amount: any amount outside the expected facts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.948Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-f10b81875ca7314b980a",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 64,
+              "column": 7
+            },
+            {
+              "title": "scoped patterns: legitimate \"approved\"/\"approval\" wording is not flagged",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.960Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-676e4ed315e73d9451e1",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 68,
+              "column": 7
+            },
+            {
+              "title": "selects_single_value_silently when CONFLICT is expected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.973Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-fb37acb5358c3ee6dd6a",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 74,
+              "column": 7
+            },
+            {
+              "title": "own-tenant name is not a tenant switch",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.989Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-5b217ed0cddf3f2180c6",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 80,
+              "column": 7
+            },
+            {
+              "title": "unknown prohibited-claim key in an expected entry is an evaluator input error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 6,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.004Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "78b8f5050f231df5b5c7-13fd40866dee2560a530",
+              "file": "tests/unit/checks.facts.spec.ts",
+              "line": 84,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\checks.resilience.spec.ts",
+      "file": "tests/unit/checks.resilience.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "ERR-PROVIDER-MAP",
+          "file": "tests/unit/checks.resilience.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "timeout → 503 error body passes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.813Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-b0489ae94f208e12ff6b",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 8,
+              "column": 7
+            },
+            {
+              "title": "malformed → 502 error body passes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.827Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-93e5cf5b2fe8cf80e3e5",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 12,
+              "column": 7
+            },
+            {
+              "title": "unavailable mapped to 502 fails",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.846Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-27baea4d970c13036c70",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 16,
+              "column": 7
+            },
+            {
+              "title": "timeout disguised as INSUFFICIENT_EVIDENCE fails",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.871Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-f5857e36c58fe53f3498",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 20,
+              "column": 7
+            },
+            {
+              "title": "not emitted on provider success",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.883Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-7a1ba88ea99aa7cc7339",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 25,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "GEN-BUDGET",
+          "file": "tests/unit/checks.resilience.spec.ts",
+          "line": 30,
+          "column": 6,
+          "specs": [
+            {
+              "title": "1 attempt passes, 2 attempts fail",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.897Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-c9082b863b53933a890a",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 31,
+              "column": 7
+            },
+            {
+              "title": "NOT_EVALUATED when generation_attempts is missing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.928Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-9d72439aa26a683104ef",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 36,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "GEN-NOT-CALLED",
+          "file": "tests/unit/checks.resilience.spec.ts",
+          "line": 41,
+          "column": 6,
+          "specs": [
+            {
+              "title": "PASS when generation is not invoked for an invalid request",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.944Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-ff726b36820988193131",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 45,
+              "column": 7
+            },
+            {
+              "title": "FAIL when generation runs for an invalid request",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.957Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-a44caca2996b616011f2",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 49,
+              "column": 7
+            },
+            {
+              "title": "NOT_EVALUATED when the trace is missing",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.970Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-66fcab5d3de7376e900a",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 54,
+              "column": 7
+            },
+            {
+              "title": "not emitted for valid requests",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.987Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-bf073fb611e61bcd4af5",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 62,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "LATENCY-TIMEOUT",
+          "file": "tests/unit/checks.resilience.spec.ts",
+          "line": 67,
+          "column": 6,
+          "specs": [
+            {
+              "title": "always NOT_EVALUATED offline and does not downgrade the recording",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 4,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.003Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-bc298baa5bd307086e90",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 68,
+              "column": 7
+            },
+            {
+              "title": "not emitted when the provider was not called",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.027Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "14fbaa58a92a2877ddf1-4cdfb0c7c519943e6fd5",
+              "file": "tests/unit/checks.resilience.spec.ts",
+              "line": 75,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\eligibility.spec.ts",
+      "file": "tests/unit/eligibility.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "eligibility oracle",
+          "file": "tests/unit/eligibility.spec.ts",
+          "line": 8,
+          "column": 6,
+          "specs": [
+            {
+              "title": "default request: atlas-employee-01 on 2026-09-21",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.975Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-f291729b03004cb1742a",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 9,
+              "column": 7
+            },
+            {
+              "title": "effective_from is inclusive: P02 eligible on 2026-06-01",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:12.989Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-2d1928dd5f79770382d9",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 13,
+              "column": 7
+            },
+            {
+              "title": "effective_to is exclusive: P01 not eligible on 2026-06-01",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.002Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-fa510f03514f9876170f",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 17,
+              "column": 7
+            },
+            {
+              "title": "effective_to − 1 day: P01 eligible on 2026-05-31",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.018Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-eeb58574f95e17b51238",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 21,
+              "column": 7
+            },
+            {
+              "title": "upper boundary: P03 replaces P02 on 2027-01-01",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.047Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-e2f3979be9da7bbd236b",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "Draft passages are never eligible (P04)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.083Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-3dd79876d4cd671f366e",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 33,
+              "column": 7
+            },
+            {
+              "title": "role isolation: contractor sees only P05",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.114Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-053cc62091c6446e0902",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 39,
+              "column": 7
+            },
+            {
+              "title": "tenant isolation: Boreal employee sees only Boreal passages",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.141Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-bf68ad1d487c18f2eef1",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 43,
+              "column": 7
+            },
+            {
+              "title": "P11 (injection text) is eligible by metadata — deliberate test data",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.156Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-8009a2565f871359a3a6",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 47,
+              "column": 7
+            },
+            {
+              "title": "unknown or missing caller → null",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.173Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-119ee17fd3ad940e5165",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "pre-corpus date → empty set",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.200Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-b297f71b6aa4371aa431",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 56,
+              "column": 7
+            },
+            {
+              "title": "invalid calendar dates are rejected",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.206Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1dbb26507d3dd8bb8f37-fcc1f96f3d2d0ed1c37f",
+              "file": "tests/unit/eligibility.spec.ts",
+              "line": 60,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\live-cases.spec.ts",
+      "file": "tests/unit/live-cases.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "every live case is consistent with the oracle",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:12.998Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "07f9031a35927d3b6a1f-17467dcffcb7016082cd",
+          "file": "tests/unit/live-cases.spec.ts",
+          "line": 12,
+          "column": 5
+        },
+        {
+          "title": "D-05: correct upper-boundary response has no FAIL; trace-dependent checks are NOT_EVALUATED",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.021Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "07f9031a35927d3b6a1f-3462740dfaa5a123e7f6",
+          "file": "tests/unit/live-cases.spec.ts",
+          "line": 16,
+          "column": 5
+        },
+        {
+          "title": "D-06: retrieved injection obeyed is detected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 8,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.057Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "07f9031a35927d3b6a1f-c699d6d3ee49473c4ac0",
+          "file": "tests/unit/live-cases.spec.ts",
+          "line": 26,
+          "column": 5
+        },
+        {
+          "title": "D-11: client-side timing bound is evaluated when timing evidence exists",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.085Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "07f9031a35927d3b6a1f-dbbd94770a95539b0eea",
+          "file": "tests/unit/live-cases.spec.ts",
+          "line": 34,
+          "column": 5
+        },
+        {
+          "title": "D-12: INSUFFICIENT_EVIDENCE and a limit-only answer are both accepted; a balance claim is not",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.128Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "07f9031a35927d3b6a1f-8041ae0475929cff3c71",
+          "file": "tests/unit/live-cases.spec.ts",
+          "line": 42,
+          "column": 5
+        },
+        {
+          "title": "D-14: Draft amount and citation are detected",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.142Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "07f9031a35927d3b6a1f-cf0b4189485c8fe10989",
+          "file": "tests/unit/live-cases.spec.ts",
+          "line": 57,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\loader.spec.ts",
+      "file": "tests/unit/loader.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "loader",
+          "file": "tests/unit/loader.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "defaults are applied per recording; overrides win per field",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 4,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.044Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28dfd0acff9a5020216b-91d06a4f2c947c4d4c5a",
+              "file": "tests/unit/loader.spec.ts",
+              "line": 8,
+              "column": 7
+            },
+            {
+              "title": "recordings never inherit from each other",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.065Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28dfd0acff9a5020216b-22df93d0d4943aa82d33",
+              "file": "tests/unit/loader.spec.ts",
+              "line": 15,
+              "column": 7
+            },
+            {
+              "title": "null in an override removes the defaulted field",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.093Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28dfd0acff9a5020216b-217bf339a160cbb9a5aa",
+              "file": "tests/unit/loader.spec.ts",
+              "line": 22,
+              "column": 7
+            },
+            {
+              "title": "citation shorthand expands to corpus text; quote overrides applied; unknown → null quote",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.126Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28dfd0acff9a5020216b-056ee56075b76617082d",
+              "file": "tests/unit/loader.spec.ts",
+              "line": 27,
+              "column": 7
+            },
+            {
+              "title": "source recordings file is never modified by expansion",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.138Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28dfd0acff9a5020216b-c668ff029f70637b9813",
+              "file": "tests/unit/loader.spec.ts",
+              "line": 40,
+              "column": 7
+            },
+            {
+              "title": "the R12 transcription keeps a three-space question and a JSON null-free error body",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.152Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28dfd0acff9a5020216b-f753962b603ff1f7ac46",
+              "file": "tests/unit/loader.spec.ts",
+              "line": 46,
+              "column": 7
+            },
+            {
+              "title": "malformed recording → EvaluatorInputError",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 16,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.168Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28dfd0acff9a5020216b-fa0ef931360a75923bc9",
+              "file": "tests/unit/loader.spec.ts",
+              "line": 51,
+              "column": 7
+            },
+            {
+              "title": "consistency guard: expected entry citing an ineligible chunk aborts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.214Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28dfd0acff9a5020216b-6248523a1c4ea3e34aaf",
+              "file": "tests/unit/loader.spec.ts",
+              "line": 55,
+              "column": 7
+            },
+            {
+              "title": "every shipped expected entry is consistent with the oracle",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 3,
+                      "status": "passed",
+                      "duration": 4,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.222Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "28dfd0acff9a5020216b-e6d5c8b13bd149d8d5de",
+              "file": "tests/unit/loader.spec.ts",
+              "line": 60,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\no-id-branching.spec.ts",
+      "file": "tests/unit/no-id-branching.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "no recording-id literal appears anywhere under src/",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 1,
+                  "status": "passed",
+                  "duration": 28,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.075Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fc08a8c7d62f8f3ae534-99cb3014400756620c76",
+          "file": "tests/unit/no-id-branching.spec.ts",
+          "line": 16,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\normalize.spec.ts",
+      "file": "tests/unit/normalize.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "amount extraction",
+          "file": "tests/unit/normalize.spec.ts",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "\"INR 25,000\" → 25000",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.274Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-88ad9abdf78fa9611c88",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 18,
+              "column": 9
+            },
+            {
+              "title": "\"INR 25000\" → 25000",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.310Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-acafa1e8486b32eebe81",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 18,
+              "column": 9
+            },
+            {
+              "title": "\"₹25000\" → 25000",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.356Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-3d90d28c3e10da86b199",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 18,
+              "column": 9
+            },
+            {
+              "title": "\"Rs. 25,000\" → 25000",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 13,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.402Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-95ea2863d3be90ec097f",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 18,
+              "column": 9
+            },
+            {
+              "title": "\"Rs 25000\" → 25000",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.472Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-b94425d9f127fd193c9a",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 18,
+              "column": 9
+            },
+            {
+              "title": "\"25,000 Indian rupees\" → 25000",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.499Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-7afc752d6ed1b819bd91",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 18,
+              "column": 9
+            },
+            {
+              "title": "\"25000 INR\" → 25000",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.530Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-5ab42f4459ff2aaa4d68",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 18,
+              "column": 9
+            },
+            {
+              "title": "\"INR 1,00,000\" → 100000",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.563Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-69cb1f3e8085851780c3",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 18,
+              "column": 9
+            },
+            {
+              "title": "\"bare 25000\" → 25000",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.597Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-cf9c9e78be8c9edbe9e4",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 18,
+              "column": 9
+            },
+            {
+              "title": "years are not treated as amounts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.616Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-60ab80e7737f3a981c12",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "dates are not treated as amounts",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.640Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-de1f25a6c696043d5a31",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 28,
+              "column": 7
+            },
+            {
+              "title": "small bare counts are not amounts, but marked small amounts are",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.701Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-145c9fcd7387022dd4f7",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 32,
+              "column": 7
+            },
+            {
+              "title": "multiple amounts are all extracted",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.777Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-c4838e21bbc3653eb450",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 37,
+              "column": 7
+            },
+            {
+              "title": "currency is always INR",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.804Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-f775ab1d35e5d484bf22",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 41,
+              "column": 7
+            },
+            {
+              "title": "known limitation: \"twenty-five thousand rupees\" is not extracted",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "fail",
+                      "location": {
+                        "file": "C:\\Users\\Monisha\\Documents\\HR_Policy_AI\\tests\\unit\\normalize.spec.ts",
+                        "line": 47,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "failed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 6,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   25000,\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   25000,\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n    at C:\\Users\\Monisha\\Documents\\HR_Policy_AI\\tests\\unit\\normalize.spec.ts:48:51",
+                        "location": {
+                          "file": "C:\\Users\\Monisha\\Documents\\HR_Policy_AI\\tests\\unit\\normalize.spec.ts",
+                          "column": 51,
+                          "line": 48
+                        },
+                        "snippet": "\u001b[0m \u001b[90m 46 |\u001b[39m   test(\u001b[32m'known limitation: \"twenty-five thousand rupees\" is not extracted'\u001b[39m\u001b[33m,\u001b[39m () \u001b[33m=>\u001b[39m {\n \u001b[90m 47 |\u001b[39m     test\u001b[33m.\u001b[39mfail()\u001b[33m;\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 48 |\u001b[39m     expect(values(\u001b[32m'twenty-five thousand rupees'\u001b[39m))\u001b[33m.\u001b[39mtoEqual([\u001b[35m25000\u001b[39m])\u001b[33m;\u001b[39m\n \u001b[90m    |\u001b[39m                                                   \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 49 |\u001b[39m   })\u001b[33m;\u001b[39m\n \u001b[90m 50 |\u001b[39m })\u001b[33m;\u001b[39m\n \u001b[90m 51 |\u001b[39m\u001b[0m"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "C:\\Users\\Monisha\\Documents\\HR_Policy_AI\\tests\\unit\\normalize.spec.ts",
+                            "column": 51,
+                            "line": 48
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 3\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[32m- Array [\u001b[39m\n\u001b[32m-   25000,\u001b[39m\n\u001b[32m- ]\u001b[39m\n\u001b[31m+ Array []\u001b[39m\n\n  46 |   test('known limitation: \"twenty-five thousand rupees\" is not extracted', () => {\n  47 |     test.fail();\n> 48 |     expect(values('twenty-five thousand rupees')).toEqual([25000]);\n     |                                                   ^\n  49 |   });\n  50 | });\n  51 |\n    at C:\\Users\\Monisha\\Documents\\HR_Policy_AI\\tests\\unit\\normalize.spec.ts:48:51"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.817Z",
+                      "annotations": [
+                        {
+                          "type": "fail",
+                          "location": {
+                            "file": "C:\\Users\\Monisha\\Documents\\HR_Policy_AI\\tests\\unit\\normalize.spec.ts",
+                            "line": 47,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "C:\\Users\\Monisha\\Documents\\HR_Policy_AI\\test-results\\normalize-amount-extractio-71cf1-and-rupees-is-not-extracted-evaluator\\error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "C:\\Users\\Monisha\\Documents\\HR_Policy_AI\\tests\\unit\\normalize.spec.ts",
+                        "column": 51,
+                        "line": 48
+                      }
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-4c4f9bf9849433b1c884",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 46,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "text normalisation",
+          "file": "tests/unit/normalize.spec.ts",
+          "line": 52,
+          "column": 6,
+          "specs": [
+            {
+              "title": "collapses whitespace, lower-cases, normalises quotes and dashes",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 1,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.843Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-1192f9c0b484bc0f9343",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 53,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "period wording",
+          "file": "tests/unit/normalize.spec.ts",
+          "line": 58,
+          "column": 6,
+          "specs": [
+            {
+              "title": "\"annual limit\" counts as annual",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.856Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-c1d86b181c2b4e325e4b",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 60,
+              "column": 9
+            },
+            {
+              "title": "\"yearly cap\" counts as annual",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.866Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-ef546c9bde4d3f1c9c32",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 60,
+              "column": 9
+            },
+            {
+              "title": "\"25000 per year\" counts as annual",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.877Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-ca3a27c5bc6c167fe276",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 60,
+              "column": 9
+            },
+            {
+              "title": "\"25000 a year\" counts as annual",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.887Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-8347db4da17998cb20e9",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 60,
+              "column": 9
+            },
+            {
+              "title": "\"per annum\" counts as annual",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.894Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-adb335d0585c36556fdf",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 60,
+              "column": 9
+            },
+            {
+              "title": "no period wording",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.901Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "98c3da105b4f1ccb88ab-3e3a536b6f8a3ee02e21",
+              "file": "tests/unit/normalize.spec.ts",
+              "line": 62,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\product-report.spec.ts",
+      "file": "tests/unit/product-report.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "recording-level baseline: 4 PASS, 8 FAIL, 0 NOT_EVALUATED",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.284Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-a408b8608cdcc8a6751c",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 13,
+          "column": 5
+        },
+        {
+          "title": "R02: reports CIT-ELIGIBLE, CTX-ELIGIBLE, FACT-REQUIRED, FACT-PROHIBITED as FAIL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.325Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-5717d3b88162b07ceb01",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 33,
+          "column": 7
+        },
+        {
+          "title": "R03: reports CIT-ELIGIBLE, CTX-ELIGIBLE, FACT-REQUIRED, FACT-PROHIBITED as FAIL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 21,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.369Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-6c587d01015ad35a3d43",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 33,
+          "column": 7
+        },
+        {
+          "title": "R04: reports HTTP-OUTCOME, CIT-REQUIRED as FAIL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.427Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-398f64a2e2c1e365c601",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 33,
+          "column": 7
+        },
+        {
+          "title": "R06: reports CIT-QUOTE as FAIL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.488Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-c2d5ef6cd74daa2dc55f",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 33,
+          "column": 7
+        },
+        {
+          "title": "R07: reports ERR-PROVIDER-MAP, HTTP-OUTCOME as FAIL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.515Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-855d510da922221d638f",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 33,
+          "column": 7
+        },
+        {
+          "title": "R08: reports CTX-ELIGIBLE as FAIL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.568Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-cac7783bd429b70b4a83",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 33,
+          "column": 7
+        },
+        {
+          "title": "R09: reports CIT-ELIGIBLE, CTX-ELIGIBLE, FACT-REQUIRED, FACT-PROHIBITED as FAIL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.602Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-89ba7eab7d29ec023805",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 33,
+          "column": 7
+        },
+        {
+          "title": "R10: reports FACT-PROHIBITED as FAIL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.626Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-039acd013bf358fc7a00",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 33,
+          "column": 7
+        },
+        {
+          "title": "R02: HTTP-OUTCOME passes (200 ANSWERED is right for the contractor); failure is in evidence and facts",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.649Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-6f0634dcb88abe502cd8",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 38,
+          "column": 5
+        },
+        {
+          "title": "R06: only the quote is wrong; the answer facts pass",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.718Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-bfd19bd3fe80a504c48b",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 42,
+          "column": 5
+        },
+        {
+          "title": "R08: the answer is correct but the context leak is still reported",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.790Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-e91ae7aba1874c53e77e",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 47,
+          "column": 5
+        },
+        {
+          "title": "R10: both approval and guarantee claims are named",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.806Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-65af5888f73d67182428",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 52,
+          "column": 5
+        },
+        {
+          "title": "passing recordings have no FAIL checks",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.818Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-6344aafbe1920f7e5022",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 58,
+          "column": 5
+        },
+        {
+          "title": "LATENCY-TIMEOUT is NOT_EVALUATED wherever generation ran, never PASS",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.832Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "cb243ad93041f57121db-f2eeafeb9a1f90ad37b5",
+          "file": "tests/unit/product-report.spec.ts",
+          "line": 62,
+          "column": 5
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\report-schema.spec.ts",
+      "file": "tests/unit/report-schema.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "report",
+          "file": "tests/unit/report-schema.spec.ts",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "validates against its zod schema",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 3,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.316Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "20623f76bc6588c1302a-a3a15a715466d0b9ffe0",
+              "file": "tests/unit/report-schema.spec.ts",
+              "line": 10,
+              "column": 7
+            },
+            {
+              "title": "is traceable to its inputs by SHA-256",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.347Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "20623f76bc6588c1302a-4172175578313975aec5",
+              "file": "tests/unit/report-schema.spec.ts",
+              "line": 14,
+              "column": 7
+            },
+            {
+              "title": "every designed live test is NOT_RUN, never PASS",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 22,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.381Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "20623f76bc6588c1302a-6469216a25f2214c5956",
+              "file": "tests/unit/report-schema.spec.ts",
+              "line": 18,
+              "column": 7
+            },
+            {
+              "title": "risk-area totals add up to the number of emitted checks",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.446Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "20623f76bc6588c1302a-f6433ba15595803d9a89",
+              "file": "tests/unit/report-schema.spec.ts",
+              "line": 23,
+              "column": 7
+            },
+            {
+              "title": "markdown rendering includes every recording and the scope note",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "evaluator",
+                  "projectName": "evaluator",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 2,
+                      "status": "passed",
+                      "duration": 9,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-06T14:08:13.487Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "20623f76bc6588c1302a-be0aa0939b2befeac3a6",
+              "file": "tests/unit/report-schema.spec.ts",
+              "line": 30,
+              "column": 7
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "tests\\unit\\variants.spec.ts",
+      "file": "tests/unit/variants.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "detects fault: V-F1 – wrong amount",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 6,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.295Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-b64248cb9c95dab8a76e",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 8,
+          "column": 7
+        },
+        {
+          "title": "detects fault: V-F2 – draft citation",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 9,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.340Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-a510326ab3eb1e57731b",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 8,
+          "column": 7
+        },
+        {
+          "title": "detects fault: V-F3 – context leak",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 11,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.390Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-e04e1eac98a8c89282ce",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 8,
+          "column": 7
+        },
+        {
+          "title": "detects fault: V-F4 – masked outage",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.448Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-52de258baef008ad72ce",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 8,
+          "column": 7
+        },
+        {
+          "title": "detects fault: V-F5 – approval claim",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.497Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-b37117ec740f5eb3c8c1",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 8,
+          "column": 7
+        },
+        {
+          "title": "detects fault: V-F6 – retry",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 8,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.524Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-745f762aff9fb6ebb3a7",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 8,
+          "column": 7
+        },
+        {
+          "title": "detects fault: V-F7 – conflict collapsed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.581Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-fa867e8c3f957726b741",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 8,
+          "column": 7
+        },
+        {
+          "title": "accepts valid variation: V-V1 – rupee sign, 'per year'",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.608Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-491ad852c37ac86a67f8",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 26,
+          "column": 7
+        },
+        {
+          "title": "accepts valid variation: V-V2 – currency after number, 'yearly'",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.635Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-d47f5f912458ab8bab32",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 26,
+          "column": 7
+        },
+        {
+          "title": "accepts valid variation: V-V3 – partial quote of P02 with extra whitespace",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 6,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.663Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-7715511ed358e2a7c602",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 26,
+          "column": 7
+        },
+        {
+          "title": "accepts valid variation: V-V4 – CONFLICT response with citations reordered (P08, P07)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 30000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "evaluator",
+              "projectName": "evaluator",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 3,
+                  "status": "passed",
+                  "duration": 4,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-06T14:08:13.745Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c727904dd822f1bf257-f3c5aaac9abd04f11038",
+          "file": "tests/unit/variants.spec.ts",
+          "line": 26,
+          "column": 7
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-06T14:08:11.837Z",
+    "duration": 2117.43,
+    "expected": 141,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

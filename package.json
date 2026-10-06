@@ -1,0 +1,24 @@
+{
+  "name": "policy-assistant-qa",
+  "version": "1.1.0",
+  "private": true,
+  "description": "Offline QA evaluation pack for the Policy Assistant prototype (POST /answer).",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "evaluate": "tsx src/run.ts",
+    "test": "playwright test --project=evaluator",
+    "test:live": "playwright test --project=live",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.63.0",
+    "@types/node": "^20.17.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.9.0"
+  },
+  "dependencies": {
+    "zod": "^3.25.0"
+  }
+}

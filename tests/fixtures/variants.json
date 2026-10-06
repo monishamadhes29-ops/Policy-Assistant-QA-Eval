@@ -1,0 +1,166 @@
+{
+  "description": "Candidate-created evaluator tests. Each variant is a raw recording (overrides on top of the dataset defaults) plus the key of the expected entry it is judged against. These are NOT product observations.",
+  "faulty": [
+    {
+      "id": "V-F1",
+      "origin": "candidate-created-evaluator-test",
+      "description": "wrong amount",
+      "base": "R01",
+      "recording": {
+        "id": "V-F1",
+        "request": {},
+        "observed": { "http_status": 200, "body": { "status": "ANSWERED", "answer": "Your annual certification reimbursement limit is INR 35,000.", "citations": ["P02"] } },
+        "trace": {}
+      },
+      "expected": "R01",
+      "must_fail": ["FACT-REQUIRED", "FACT-PROHIBITED"],
+      "must_not_fail": ["CIT-QUOTE"]
+    },
+    {
+      "id": "V-F2",
+      "origin": "candidate-created-evaluator-test",
+      "description": "draft citation",
+      "base": "R01",
+      "recording": {
+        "id": "V-F2",
+        "request": {},
+        "observed": { "http_status": 200, "body": { "status": "ANSWERED", "answer": "Your annual certification reimbursement limit is INR 25000.", "citations": ["P04"] } },
+        "trace": {}
+      },
+      "expected": "R01",
+      "must_fail": ["CIT-ELIGIBLE"],
+      "must_not_fail": []
+    },
+    {
+      "id": "V-F3",
+      "origin": "candidate-created-evaluator-test",
+      "description": "context leak",
+      "base": "R01",
+      "recording": {
+        "id": "V-F3",
+        "request": {},
+        "observed": { "http_status": 200, "body": { "status": "ANSWERED", "answer": "Your annual certification reimbursement limit is INR 25000.", "citations": ["P02"] } },
+        "trace": { "model_context_ids": ["P02", "P06"] }
+      },
+      "expected": "R01",
+      "must_fail": ["CTX-ELIGIBLE"],
+      "must_not_fail": ["FACT-REQUIRED", "FACT-PROHIBITED"]
+    },
+    {
+      "id": "V-F4",
+      "origin": "candidate-created-evaluator-test",
+      "description": "masked outage",
+      "base": "R01",
+      "recording": {
+        "id": "V-F4",
+        "request": {},
+        "observed": { "http_status": 200, "body": { "status": "INSUFFICIENT_EVIDENCE", "answer": null, "citations": [] } },
+        "trace": { "provider_event": "timeout" }
+      },
+      "expected": "R01",
+      "must_fail": ["ERR-PROVIDER-MAP"],
+      "must_not_fail": []
+    },
+    {
+      "id": "V-F5",
+      "origin": "candidate-created-evaluator-test",
+      "description": "approval claim",
+      "base": "R01",
+      "recording": {
+        "id": "V-F5",
+        "request": {},
+        "observed": { "http_status": 200, "body": { "status": "ANSWERED", "answer": "Your annual certification reimbursement limit is INR 25000. Your claim is approved.", "citations": ["P02"] } },
+        "trace": {}
+      },
+      "expected": "R01",
+      "must_fail": ["FACT-PROHIBITED"],
+      "must_fail_reason_contains": { "FACT-PROHIBITED": "claim_approval" },
+      "must_not_fail": []
+    },
+    {
+      "id": "V-F6",
+      "origin": "candidate-created-evaluator-test",
+      "description": "retry",
+      "base": "R01",
+      "recording": {
+        "id": "V-F6",
+        "request": {},
+        "observed": { "http_status": 200, "body": { "status": "ANSWERED", "answer": "Your annual certification reimbursement limit is INR 25000.", "citations": ["P02"] } },
+        "trace": { "generation_attempts": 2 }
+      },
+      "expected": "R01",
+      "must_fail": ["GEN-BUDGET"],
+      "must_not_fail": []
+    },
+    {
+      "id": "V-F7",
+      "origin": "candidate-created-evaluator-test",
+      "description": "conflict collapsed",
+      "base": "R04",
+      "recording": {
+        "id": "V-F7",
+        "request": { "body": { "question": "What is my home-office allowance?" } },
+        "observed": { "http_status": 200, "body": { "status": "ANSWERED", "answer": "Your annual home-office allowance is INR 15000.", "citations": ["P08"] } },
+        "trace": { "model_context_ids": ["P07", "P08"] }
+      },
+      "expected": "R04",
+      "must_fail": ["HTTP-OUTCOME", "CIT-REQUIRED"],
+      "must_not_fail": []
+    }
+  ],
+  "valid": [
+    {
+      "id": "V-V1",
+      "origin": "candidate-created-evaluator-test",
+      "description": "rupee sign, 'per year'",
+      "base": "R01",
+      "recording": {
+        "id": "V-V1",
+        "request": {},
+        "observed": { "http_status": 200, "body": { "status": "ANSWERED", "answer": "Employees can claim up to ₹25000 per year for certifications.", "citations": ["P02"] } },
+        "trace": {}
+      },
+      "expected": "R01"
+    },
+    {
+      "id": "V-V2",
+      "origin": "candidate-created-evaluator-test",
+      "description": "currency after number, 'yearly'",
+      "base": "R01",
+      "recording": {
+        "id": "V-V2",
+        "request": {},
+        "observed": { "http_status": 200, "body": { "status": "ANSWERED", "answer": "25000 INR is the yearly certification cap.", "citations": ["P02"] } },
+        "trace": {}
+      },
+      "expected": "R01"
+    },
+    {
+      "id": "V-V3",
+      "origin": "candidate-created-evaluator-test",
+      "description": "partial quote of P02 with extra whitespace",
+      "base": "R01",
+      "recording": {
+        "id": "V-V3",
+        "request": {},
+        "observed": { "http_status": 200, "body": { "status": "ANSWERED", "answer": "Your annual certification reimbursement limit is INR 25000.", "citations": ["P02"] } },
+        "trace": {},
+        "quote_overrides": { "P02": "  annual   certification reimbursement\n limit for employees is   INR 25000" }
+      },
+      "expected": "R01"
+    },
+    {
+      "id": "V-V4",
+      "origin": "candidate-created-evaluator-test",
+      "description": "CONFLICT response with citations reordered (P08, P07)",
+      "base": "R04",
+      "recording": {
+        "id": "V-V4",
+        "request": { "body": { "question": "What is my home-office allowance?" } },
+        "observed": { "http_status": 200, "body": { "status": "CONFLICT", "answer": null, "citations": ["P08", "P07"] } },
+        "trace": { "model_context_ids": ["P07", "P08"] }
+      },
+      "expected": "R04"
+    }
+  ]
+}

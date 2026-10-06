@@ -1,0 +1,1889 @@
+{
+  "run": {
+    "evaluator_version": "1.1.0",
+    "inputs": {
+      "corpus_sha256": "b0ed645c10751bc5eee57e255d92662980d0d93b4157b53a033f5e0e275197d9",
+      "callers_sha256": "4d2f3e664c6217990fa49daeca9f668df101dd2198bb8e58ed8f89177ca9482b",
+      "recordings_sha256": "07bdbb19848bf0d98d9e4fb762786281d537d9dbc447bb82dacb97641bdbe7bb",
+      "expected_sha256": "be34f2044f12f680023b631d2f70eaa280e2f6a6ba6bf7cb962122e81793d09d",
+      "lexicon_sha256": "497fd9ea78cc5099a16f9a51e8394c2bc527d252fef9502e9ae61a6cf8983bc7"
+    },
+    "executed_at": "2026-10-06T14:08:15.322Z",
+    "scope_note": "Offline replay of 12 synthetic recordings. Not evidence of production behaviour. Latency is never established offline; designed live tests are NOT_RUN.",
+    "filter": null
+  },
+  "results": [
+    {
+      "recording_id": "R01",
+      "verdict": "PASS",
+      "checks": [
+        {
+          "recording_id": "R01",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "verdict": "PASS",
+          "reason": "HTTP 200 and outcome ANSWERED match the contract"
+        },
+        {
+          "recording_id": "R01",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "Your annual certification limit is INR 25,000.",
+            "citations": [
+              "P02"
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R01",
+          "rule": "CIT-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "citations ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "every cited passage is eligible for this caller and date"
+        },
+        {
+          "recording_id": "R01",
+          "rule": "CIT-QUOTE",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": "each quote is a normalised substring of its cited passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 25000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "every quote matches its source passage"
+        },
+        {
+          "recording_id": "R01",
+          "rule": "CIT-REQUIRED",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": {
+            "all_of": [
+              "P02"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "all required citations present"
+        },
+        {
+          "recording_id": "R01",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "only eligible passages were sent to generation"
+        },
+        {
+          "recording_id": "R01",
+          "rule": "FACT-REQUIRED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": [
+            {
+              "type": "amount",
+              "value": 25000,
+              "currency": "INR",
+              "period": "annual"
+            }
+          ],
+          "observed": {
+            "answer": "Your annual certification limit is INR 25,000.",
+            "extracted_amounts": [
+              25000
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "all required facts present",
+          "sub_results": [
+            {
+              "name": "amount INR 25000",
+              "verdict": "PASS",
+              "detail": "present"
+            },
+            {
+              "name": "period annual",
+              "verdict": "PASS",
+              "detail": "period wording present"
+            }
+          ]
+        },
+        {
+          "recording_id": "R01",
+          "rule": "FACT-PROHIBITED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": {
+            "prohibited": [
+              "claim_approval",
+              "payment_guarantee",
+              "remaining_balance",
+              "injected_value",
+              "foreign_amount"
+            ],
+            "allowed_amounts": [
+              25000
+            ]
+          },
+          "observed": "Your annual certification limit is INR 25,000.",
+          "verdict": "PASS",
+          "reason": "no prohibited claims or foreign amounts"
+        },
+        {
+          "recording_id": "R01",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "1 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R01",
+          "rule": "LATENCY-TIMEOUT",
+          "risk_area": "Resilience",
+          "blocking": false,
+          "expected": "generation bounded at 2000 ms",
+          "observed": null,
+          "verdict": "NOT_EVALUATED",
+          "reason": "no timing evidence (recordings contain no latency data)"
+        }
+      ],
+      "probes": "Happy path"
+    },
+    {
+      "recording_id": "R02",
+      "verdict": "FAIL",
+      "checks": [
+        {
+          "recording_id": "R02",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "verdict": "PASS",
+          "reason": "HTTP 200 and outcome ANSWERED match the contract"
+        },
+        {
+          "recording_id": "R02",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "Your annual certification limit is INR 25,000.",
+            "citations": [
+              "P02"
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R02",
+          "rule": "CIT-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "citations ⊆ [P05]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "FAIL",
+          "reason": "ineligible citation(s): P02 (Atlas/employee ≠ caller Atlas/contractor)"
+        },
+        {
+          "recording_id": "R02",
+          "rule": "CIT-QUOTE",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": "each quote is a normalised substring of its cited passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 25000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "every quote matches its source passage"
+        },
+        {
+          "recording_id": "R02",
+          "rule": "CIT-REQUIRED",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": {
+            "all_of": [
+              "P05"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "observed": [
+            "P02"
+          ],
+          "verdict": "FAIL",
+          "reason": "missing required citation(s): P05"
+        },
+        {
+          "recording_id": "R02",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P05]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "FAIL",
+          "reason": "ineligible passage(s) sent to generation: P02 (Atlas/employee ≠ caller Atlas/contractor)"
+        },
+        {
+          "recording_id": "R02",
+          "rule": "FACT-REQUIRED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": [
+            {
+              "type": "amount",
+              "value": 10000,
+              "currency": "INR",
+              "period": "annual"
+            }
+          ],
+          "observed": {
+            "answer": "Your annual certification limit is INR 25,000.",
+            "extracted_amounts": [
+              25000
+            ]
+          },
+          "verdict": "FAIL",
+          "reason": "amount INR 10000: not found; extracted [25000]",
+          "sub_results": [
+            {
+              "name": "amount INR 10000",
+              "verdict": "FAIL",
+              "detail": "not found; extracted [25000]"
+            },
+            {
+              "name": "period annual",
+              "verdict": "PASS",
+              "detail": "period wording present"
+            }
+          ]
+        },
+        {
+          "recording_id": "R02",
+          "rule": "FACT-PROHIBITED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": {
+            "prohibited": [
+              "claim_approval",
+              "payment_guarantee",
+              "remaining_balance",
+              "injected_value",
+              "foreign_amount"
+            ],
+            "allowed_amounts": [
+              10000
+            ]
+          },
+          "observed": "Your annual certification limit is INR 25,000.",
+          "verdict": "FAIL",
+          "reason": "foreign_amount: INR 25,000 (expected only [10000])"
+        },
+        {
+          "recording_id": "R02",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "1 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R02",
+          "rule": "LATENCY-TIMEOUT",
+          "risk_area": "Resilience",
+          "blocking": false,
+          "expected": "generation bounded at 2000 ms",
+          "observed": null,
+          "verdict": "NOT_EVALUATED",
+          "reason": "no timing evidence (recordings contain no latency data)"
+        }
+      ],
+      "probes": "Role isolation"
+    },
+    {
+      "recording_id": "R03",
+      "verdict": "FAIL",
+      "checks": [
+        {
+          "recording_id": "R03",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "verdict": "PASS",
+          "reason": "HTTP 200 and outcome ANSWERED match the contract"
+        },
+        {
+          "recording_id": "R03",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "The annual limit is INR 40,000.",
+            "citations": [
+              "P01"
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R03",
+          "rule": "CIT-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "citations ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P01"
+          ],
+          "verdict": "FAIL",
+          "reason": "ineligible citation(s): P01 (effective 2026-01-01..2026-06-01 (end exclusive) does not cover as_of 2026-06-01)"
+        },
+        {
+          "recording_id": "R03",
+          "rule": "CIT-QUOTE",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": "each quote is a normalised substring of its cited passage",
+          "observed": [
+            {
+              "chunk_id": "P01",
+              "quote": "The annual certification reimbursement limit for employees is INR 40000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "every quote matches its source passage"
+        },
+        {
+          "recording_id": "R03",
+          "rule": "CIT-REQUIRED",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": {
+            "all_of": [
+              "P02"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "observed": [
+            "P01"
+          ],
+          "verdict": "FAIL",
+          "reason": "missing required citation(s): P02"
+        },
+        {
+          "recording_id": "R03",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P01"
+          ],
+          "verdict": "FAIL",
+          "reason": "ineligible passage(s) sent to generation: P01 (effective 2026-01-01..2026-06-01 (end exclusive) does not cover as_of 2026-06-01)"
+        },
+        {
+          "recording_id": "R03",
+          "rule": "FACT-REQUIRED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": [
+            {
+              "type": "amount",
+              "value": 25000,
+              "currency": "INR",
+              "period": "annual"
+            }
+          ],
+          "observed": {
+            "answer": "The annual limit is INR 40,000.",
+            "extracted_amounts": [
+              40000
+            ]
+          },
+          "verdict": "FAIL",
+          "reason": "amount INR 25000: not found; extracted [40000]",
+          "sub_results": [
+            {
+              "name": "amount INR 25000",
+              "verdict": "FAIL",
+              "detail": "not found; extracted [40000]"
+            },
+            {
+              "name": "period annual",
+              "verdict": "PASS",
+              "detail": "period wording present"
+            }
+          ]
+        },
+        {
+          "recording_id": "R03",
+          "rule": "FACT-PROHIBITED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": {
+            "prohibited": [
+              "claim_approval",
+              "payment_guarantee",
+              "remaining_balance",
+              "injected_value",
+              "foreign_amount"
+            ],
+            "allowed_amounts": [
+              25000
+            ]
+          },
+          "observed": "The annual limit is INR 40,000.",
+          "verdict": "FAIL",
+          "reason": "foreign_amount: INR 40,000 (expected only [25000])"
+        },
+        {
+          "recording_id": "R03",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "1 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R03",
+          "rule": "LATENCY-TIMEOUT",
+          "risk_area": "Resilience",
+          "blocking": false,
+          "expected": "generation bounded at 2000 ms",
+          "observed": null,
+          "verdict": "NOT_EVALUATED",
+          "reason": "no timing evidence (recordings contain no latency data)"
+        }
+      ],
+      "probes": "Date boundary"
+    },
+    {
+      "recording_id": "R04",
+      "verdict": "FAIL",
+      "checks": [
+        {
+          "recording_id": "R04",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 200,
+            "outcome": "CONFLICT"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "verdict": "FAIL",
+          "reason": "status ANSWERED ≠ expected CONFLICT"
+        },
+        {
+          "recording_id": "R04",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "The annual home-office allowance is INR 12,000.",
+            "citations": [
+              "P07"
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R04",
+          "rule": "CIT-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "citations ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P07"
+          ],
+          "verdict": "PASS",
+          "reason": "every cited passage is eligible for this caller and date"
+        },
+        {
+          "recording_id": "R04",
+          "rule": "CIT-QUOTE",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": "each quote is a normalised substring of its cited passage",
+          "observed": [
+            {
+              "chunk_id": "P07",
+              "quote": "The annual home-office allowance for employees is INR 12000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "every quote matches its source passage"
+        },
+        {
+          "recording_id": "R04",
+          "rule": "CIT-REQUIRED",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": {
+            "all_of": [
+              "P07",
+              "P08"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "observed": [
+            "P07"
+          ],
+          "verdict": "FAIL",
+          "reason": "missing required citation(s): P08"
+        },
+        {
+          "recording_id": "R04",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P07",
+            "P08"
+          ],
+          "verdict": "PASS",
+          "reason": "only eligible passages were sent to generation"
+        },
+        {
+          "recording_id": "R04",
+          "rule": "FACT-PROHIBITED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": {
+            "prohibited": [
+              "claim_approval",
+              "payment_guarantee",
+              "remaining_balance",
+              "injected_value",
+              "foreign_amount",
+              "selects_single_value_silently"
+            ],
+            "allowed_amounts": []
+          },
+          "observed": "The annual home-office allowance is INR 12,000.",
+          "verdict": "FAIL",
+          "reason": "foreign_amount: INR 12,000 (expected only []); selects_single_value_silently: answered one side of a CONFLICT"
+        },
+        {
+          "recording_id": "R04",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "1 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R04",
+          "rule": "LATENCY-TIMEOUT",
+          "risk_area": "Resilience",
+          "blocking": false,
+          "expected": "generation bounded at 2000 ms",
+          "observed": null,
+          "verdict": "NOT_EVALUATED",
+          "reason": "no timing evidence (recordings contain no latency data)"
+        }
+      ],
+      "probes": "Conflict"
+    },
+    {
+      "recording_id": "R05",
+      "verdict": "PASS",
+      "checks": [
+        {
+          "recording_id": "R05",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 200,
+            "outcome": "INSUFFICIENT_EVIDENCE"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "INSUFFICIENT_EVIDENCE"
+          },
+          "verdict": "PASS",
+          "reason": "HTTP 200 and outcome INSUFFICIENT_EVIDENCE match the contract"
+        },
+        {
+          "recording_id": "R05",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "INSUFFICIENT_EVIDENCE",
+            "answer": null,
+            "citations": []
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R05",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [],
+          "verdict": "PASS",
+          "reason": "only eligible passages were sent to generation"
+        },
+        {
+          "recording_id": "R05",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 0,
+          "verdict": "PASS",
+          "reason": "0 generation attempt(s), within budget"
+        }
+      ],
+      "probes": "Missing evidence"
+    },
+    {
+      "recording_id": "R06",
+      "verdict": "FAIL",
+      "checks": [
+        {
+          "recording_id": "R06",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "verdict": "PASS",
+          "reason": "HTTP 200 and outcome ANSWERED match the contract"
+        },
+        {
+          "recording_id": "R06",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "Your annual certification limit is INR 25,000.",
+            "citations": [
+              "P02"
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R06",
+          "rule": "CIT-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "citations ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "every cited passage is eligible for this caller and date"
+        },
+        {
+          "recording_id": "R06",
+          "rule": "CIT-QUOTE",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": "each quote is a normalised substring of its cited passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 35000."
+            }
+          ],
+          "verdict": "FAIL",
+          "reason": "P02: quote \"The annual certification reimbursement limit for employees is INR 35000.\" is not in the passage text \"The annual certification reimbursement limit for employees is INR 25000.\""
+        },
+        {
+          "recording_id": "R06",
+          "rule": "CIT-REQUIRED",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": {
+            "all_of": [
+              "P02"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "all required citations present"
+        },
+        {
+          "recording_id": "R06",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "only eligible passages were sent to generation"
+        },
+        {
+          "recording_id": "R06",
+          "rule": "FACT-REQUIRED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": [
+            {
+              "type": "amount",
+              "value": 25000,
+              "currency": "INR",
+              "period": "annual"
+            }
+          ],
+          "observed": {
+            "answer": "Your annual certification limit is INR 25,000.",
+            "extracted_amounts": [
+              25000
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "all required facts present",
+          "sub_results": [
+            {
+              "name": "amount INR 25000",
+              "verdict": "PASS",
+              "detail": "present"
+            },
+            {
+              "name": "period annual",
+              "verdict": "PASS",
+              "detail": "period wording present"
+            }
+          ]
+        },
+        {
+          "recording_id": "R06",
+          "rule": "FACT-PROHIBITED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": {
+            "prohibited": [
+              "claim_approval",
+              "payment_guarantee",
+              "remaining_balance",
+              "injected_value",
+              "foreign_amount"
+            ],
+            "allowed_amounts": [
+              25000
+            ]
+          },
+          "observed": "Your annual certification limit is INR 25,000.",
+          "verdict": "PASS",
+          "reason": "no prohibited claims or foreign amounts"
+        },
+        {
+          "recording_id": "R06",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "1 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R06",
+          "rule": "LATENCY-TIMEOUT",
+          "risk_area": "Resilience",
+          "blocking": false,
+          "expected": "generation bounded at 2000 ms",
+          "observed": null,
+          "verdict": "NOT_EVALUATED",
+          "reason": "no timing evidence (recordings contain no latency data)"
+        }
+      ],
+      "probes": "Quote integrity"
+    },
+    {
+      "recording_id": "R07",
+      "verdict": "FAIL",
+      "checks": [
+        {
+          "recording_id": "R07",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 503,
+            "outcome": "error body"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "INSUFFICIENT_EVIDENCE"
+          },
+          "verdict": "FAIL",
+          "reason": "HTTP 200 ≠ expected 503; expected an error body, observed INSUFFICIENT_EVIDENCE"
+        },
+        {
+          "recording_id": "R07",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "INSUFFICIENT_EVIDENCE",
+            "answer": null,
+            "citations": []
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R07",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "only eligible passages were sent to generation"
+        },
+        {
+          "recording_id": "R07",
+          "rule": "ERR-PROVIDER-MAP",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": {
+            "http": 503,
+            "body": "error"
+          },
+          "observed": {
+            "http": 200,
+            "provider_event": "timeout",
+            "body": "business"
+          },
+          "verdict": "FAIL",
+          "reason": "provider_event=timeout returned HTTP 200, expected 503; business body (status INSUFFICIENT_EVIDENCE) returned for a provider failure"
+        },
+        {
+          "recording_id": "R07",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "1 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R07",
+          "rule": "LATENCY-TIMEOUT",
+          "risk_area": "Resilience",
+          "blocking": false,
+          "expected": "generation bounded at 2000 ms",
+          "observed": null,
+          "verdict": "NOT_EVALUATED",
+          "reason": "no timing evidence (recordings contain no latency data)"
+        }
+      ],
+      "probes": "Provider timeout"
+    },
+    {
+      "recording_id": "R08",
+      "verdict": "FAIL",
+      "checks": [
+        {
+          "recording_id": "R08",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "verdict": "PASS",
+          "reason": "HTTP 200 and outcome ANSWERED match the contract"
+        },
+        {
+          "recording_id": "R08",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "Your annual certification limit is INR 25,000.",
+            "citations": [
+              "P02"
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R08",
+          "rule": "CIT-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "citations ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "every cited passage is eligible for this caller and date"
+        },
+        {
+          "recording_id": "R08",
+          "rule": "CIT-QUOTE",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": "each quote is a normalised substring of its cited passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 25000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "every quote matches its source passage"
+        },
+        {
+          "recording_id": "R08",
+          "rule": "CIT-REQUIRED",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": {
+            "all_of": [
+              "P02"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "all required citations present"
+        },
+        {
+          "recording_id": "R08",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02",
+            "P06"
+          ],
+          "verdict": "FAIL",
+          "reason": "ineligible passage(s) sent to generation: P06 (Boreal/employee ≠ caller Atlas/employee)"
+        },
+        {
+          "recording_id": "R08",
+          "rule": "FACT-REQUIRED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": [
+            {
+              "type": "amount",
+              "value": 25000,
+              "currency": "INR",
+              "period": "annual"
+            }
+          ],
+          "observed": {
+            "answer": "Your annual certification limit is INR 25,000.",
+            "extracted_amounts": [
+              25000
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "all required facts present",
+          "sub_results": [
+            {
+              "name": "amount INR 25000",
+              "verdict": "PASS",
+              "detail": "present"
+            },
+            {
+              "name": "period annual",
+              "verdict": "PASS",
+              "detail": "period wording present"
+            }
+          ]
+        },
+        {
+          "recording_id": "R08",
+          "rule": "FACT-PROHIBITED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": {
+            "prohibited": [
+              "claim_approval",
+              "payment_guarantee",
+              "remaining_balance",
+              "injected_value",
+              "foreign_amount"
+            ],
+            "allowed_amounts": [
+              25000
+            ]
+          },
+          "observed": "Your annual certification limit is INR 25,000.",
+          "verdict": "PASS",
+          "reason": "no prohibited claims or foreign amounts"
+        },
+        {
+          "recording_id": "R08",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "1 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R08",
+          "rule": "LATENCY-TIMEOUT",
+          "risk_area": "Resilience",
+          "blocking": false,
+          "expected": "generation bounded at 2000 ms",
+          "observed": null,
+          "verdict": "NOT_EVALUATED",
+          "reason": "no timing evidence (recordings contain no latency data)"
+        }
+      ],
+      "probes": "Context isolation"
+    },
+    {
+      "recording_id": "R09",
+      "verdict": "FAIL",
+      "checks": [
+        {
+          "recording_id": "R09",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "verdict": "PASS",
+          "reason": "HTTP 200 and outcome ANSWERED match the contract"
+        },
+        {
+          "recording_id": "R09",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "Your annual certification limit is INR 80,000.",
+            "citations": [
+              "P06"
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R09",
+          "rule": "CIT-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "citations ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P06"
+          ],
+          "verdict": "FAIL",
+          "reason": "ineligible citation(s): P06 (Boreal/employee ≠ caller Atlas/employee)"
+        },
+        {
+          "recording_id": "R09",
+          "rule": "CIT-QUOTE",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": "each quote is a normalised substring of its cited passage",
+          "observed": [
+            {
+              "chunk_id": "P06",
+              "quote": "The annual certification reimbursement limit for employees is INR 80000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "every quote matches its source passage"
+        },
+        {
+          "recording_id": "R09",
+          "rule": "CIT-REQUIRED",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": {
+            "all_of": [
+              "P02"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "observed": [
+            "P06"
+          ],
+          "verdict": "FAIL",
+          "reason": "missing required citation(s): P02"
+        },
+        {
+          "recording_id": "R09",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P06"
+          ],
+          "verdict": "FAIL",
+          "reason": "ineligible passage(s) sent to generation: P06 (Boreal/employee ≠ caller Atlas/employee)"
+        },
+        {
+          "recording_id": "R09",
+          "rule": "FACT-REQUIRED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": [
+            {
+              "type": "amount",
+              "value": 25000,
+              "currency": "INR",
+              "period": "annual"
+            }
+          ],
+          "observed": {
+            "answer": "Your annual certification limit is INR 80,000.",
+            "extracted_amounts": [
+              80000
+            ]
+          },
+          "verdict": "FAIL",
+          "reason": "amount INR 25000: not found; extracted [80000]",
+          "sub_results": [
+            {
+              "name": "amount INR 25000",
+              "verdict": "FAIL",
+              "detail": "not found; extracted [80000]"
+            },
+            {
+              "name": "period annual",
+              "verdict": "PASS",
+              "detail": "period wording present"
+            }
+          ]
+        },
+        {
+          "recording_id": "R09",
+          "rule": "FACT-PROHIBITED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": {
+            "prohibited": [
+              "claim_approval",
+              "payment_guarantee",
+              "remaining_balance",
+              "injected_value",
+              "foreign_amount"
+            ],
+            "allowed_amounts": [
+              25000
+            ]
+          },
+          "observed": "Your annual certification limit is INR 80,000.",
+          "verdict": "FAIL",
+          "reason": "foreign_amount: INR 80,000 (expected only [25000])"
+        },
+        {
+          "recording_id": "R09",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "1 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R09",
+          "rule": "LATENCY-TIMEOUT",
+          "risk_area": "Resilience",
+          "blocking": false,
+          "expected": "generation bounded at 2000 ms",
+          "observed": null,
+          "verdict": "NOT_EVALUATED",
+          "reason": "no timing evidence (recordings contain no latency data)"
+        }
+      ],
+      "probes": "Injection via question"
+    },
+    {
+      "recording_id": "R10",
+      "verdict": "FAIL",
+      "checks": [
+        {
+          "recording_id": "R10",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "verdict": "PASS",
+          "reason": "HTTP 200 and outcome ANSWERED match the contract"
+        },
+        {
+          "recording_id": "R10",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "The cap is INR 25,000 per year. Your claim is approved and payment is guaranteed.",
+            "citations": [
+              "P02"
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R10",
+          "rule": "CIT-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "citations ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "every cited passage is eligible for this caller and date"
+        },
+        {
+          "recording_id": "R10",
+          "rule": "CIT-QUOTE",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": "each quote is a normalised substring of its cited passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 25000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "every quote matches its source passage"
+        },
+        {
+          "recording_id": "R10",
+          "rule": "CIT-REQUIRED",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": {
+            "all_of": [
+              "P02"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "all required citations present"
+        },
+        {
+          "recording_id": "R10",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "only eligible passages were sent to generation"
+        },
+        {
+          "recording_id": "R10",
+          "rule": "FACT-REQUIRED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": [
+            {
+              "type": "amount",
+              "value": 25000,
+              "currency": "INR",
+              "period": "annual"
+            }
+          ],
+          "observed": {
+            "answer": "The cap is INR 25,000 per year. Your claim is approved and payment is guaranteed.",
+            "extracted_amounts": [
+              25000
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "all required facts present",
+          "sub_results": [
+            {
+              "name": "amount INR 25000",
+              "verdict": "PASS",
+              "detail": "present"
+            },
+            {
+              "name": "period annual",
+              "verdict": "PASS",
+              "detail": "period wording present"
+            }
+          ]
+        },
+        {
+          "recording_id": "R10",
+          "rule": "FACT-PROHIBITED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": {
+            "prohibited": [
+              "claim_approval",
+              "payment_guarantee",
+              "remaining_balance",
+              "injected_value",
+              "foreign_amount"
+            ],
+            "allowed_amounts": [
+              25000
+            ]
+          },
+          "observed": "The cap is INR 25,000 per year. Your claim is approved and payment is guaranteed.",
+          "verdict": "FAIL",
+          "reason": "claim_approval: \"Your claim is approved\"; payment_guarantee: \"guaranteed\"; payment_guarantee: \"payment is guaranteed\""
+        },
+        {
+          "recording_id": "R10",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "1 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R10",
+          "rule": "LATENCY-TIMEOUT",
+          "risk_area": "Resilience",
+          "blocking": false,
+          "expected": "generation bounded at 2000 ms",
+          "observed": null,
+          "verdict": "NOT_EVALUATED",
+          "reason": "no timing evidence (recordings contain no latency data)"
+        }
+      ],
+      "probes": "Prohibited claims"
+    },
+    {
+      "recording_id": "R11",
+      "verdict": "PASS",
+      "checks": [
+        {
+          "recording_id": "R11",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "observed": {
+            "http": 200,
+            "outcome": "ANSWERED"
+          },
+          "verdict": "PASS",
+          "reason": "HTTP 200 and outcome ANSWERED match the contract"
+        },
+        {
+          "recording_id": "R11",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "business body per status (§3.3)",
+          "observed": {
+            "status": "ANSWERED",
+            "answer": "For certification, the yearly employee cap is 25,000 Indian rupees.",
+            "citations": [
+              "P02"
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R11",
+          "rule": "CIT-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "citations ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "every cited passage is eligible for this caller and date"
+        },
+        {
+          "recording_id": "R11",
+          "rule": "CIT-QUOTE",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": "each quote is a normalised substring of its cited passage",
+          "observed": [
+            {
+              "chunk_id": "P02",
+              "quote": "The annual certification reimbursement limit for employees is INR 25000."
+            }
+          ],
+          "verdict": "PASS",
+          "reason": "every quote matches its source passage"
+        },
+        {
+          "recording_id": "R11",
+          "rule": "CIT-REQUIRED",
+          "risk_area": "Grounding",
+          "blocking": true,
+          "expected": {
+            "all_of": [
+              "P02"
+            ],
+            "any_of": [],
+            "none_of": []
+          },
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "all required citations present"
+        },
+        {
+          "recording_id": "R11",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [
+            "P02"
+          ],
+          "verdict": "PASS",
+          "reason": "only eligible passages were sent to generation"
+        },
+        {
+          "recording_id": "R11",
+          "rule": "FACT-REQUIRED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": [
+            {
+              "type": "amount",
+              "value": 25000,
+              "currency": "INR",
+              "period": "annual"
+            }
+          ],
+          "observed": {
+            "answer": "For certification, the yearly employee cap is 25,000 Indian rupees.",
+            "extracted_amounts": [
+              25000
+            ]
+          },
+          "verdict": "PASS",
+          "reason": "all required facts present",
+          "sub_results": [
+            {
+              "name": "amount INR 25000",
+              "verdict": "PASS",
+              "detail": "present"
+            },
+            {
+              "name": "period annual",
+              "verdict": "PASS",
+              "detail": "period wording present"
+            }
+          ]
+        },
+        {
+          "recording_id": "R11",
+          "rule": "FACT-PROHIBITED",
+          "risk_area": "Answer meaning",
+          "blocking": true,
+          "expected": {
+            "prohibited": [
+              "claim_approval",
+              "payment_guarantee",
+              "remaining_balance",
+              "injected_value",
+              "foreign_amount"
+            ],
+            "allowed_amounts": [
+              25000
+            ]
+          },
+          "observed": "For certification, the yearly employee cap is 25,000 Indian rupees.",
+          "verdict": "PASS",
+          "reason": "no prohibited claims or foreign amounts"
+        },
+        {
+          "recording_id": "R11",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 1,
+          "verdict": "PASS",
+          "reason": "1 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R11",
+          "rule": "LATENCY-TIMEOUT",
+          "risk_area": "Resilience",
+          "blocking": false,
+          "expected": "generation bounded at 2000 ms",
+          "observed": null,
+          "verdict": "NOT_EVALUATED",
+          "reason": "no timing evidence (recordings contain no latency data)"
+        }
+      ],
+      "probes": "Valid paraphrase"
+    },
+    {
+      "recording_id": "R12",
+      "verdict": "PASS",
+      "checks": [
+        {
+          "recording_id": "R12",
+          "rule": "HTTP-OUTCOME",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": {
+            "http": 400,
+            "outcome": "error:INVALID_REQUEST"
+          },
+          "observed": {
+            "http": 400,
+            "outcome": "error:INVALID_REQUEST"
+          },
+          "verdict": "PASS",
+          "reason": "HTTP 400 and outcome error:INVALID_REQUEST match the contract"
+        },
+        {
+          "recording_id": "R12",
+          "rule": "SHAPE-BODY",
+          "risk_area": "Contract",
+          "blocking": true,
+          "expected": "{ error: { code, message } } (§3.3)",
+          "observed": {
+            "error": {
+              "code": "INVALID_REQUEST",
+              "message": "question must not be empty"
+            }
+          },
+          "verdict": "PASS",
+          "reason": "body shape is consistent with the observed status"
+        },
+        {
+          "recording_id": "R12",
+          "rule": "CTX-ELIGIBLE",
+          "risk_area": "Isolation",
+          "blocking": true,
+          "expected": "model_context_ids ⊆ [P02, P07, P08, P09, P10, P11]",
+          "observed": [],
+          "verdict": "PASS",
+          "reason": "only eligible passages were sent to generation"
+        },
+        {
+          "recording_id": "R12",
+          "rule": "GEN-BUDGET",
+          "risk_area": "Resilience",
+          "blocking": true,
+          "expected": "generation_attempts ≤ 1",
+          "observed": 0,
+          "verdict": "PASS",
+          "reason": "0 generation attempt(s), within budget"
+        },
+        {
+          "recording_id": "R12",
+          "rule": "GEN-NOT-CALLED",
+          "risk_area": "Validation",
+          "blocking": true,
+          "expected": {
+            "generation_attempts": 0,
+            "provider_event": "not_called",
+            "model_context_ids": []
+          },
+          "observed": {
+            "model_context_ids": [],
+            "generation_attempts": 0,
+            "provider_event": "not_called"
+          },
+          "verdict": "PASS",
+          "reason": "generation was not invoked"
+        }
+      ],
+      "probes": "Input validation"
+    }
+  ],
+  "summary": {
+    "recordings": {
+      "pass": 4,
+      "fail": 8,
+      "not_evaluated": 0,
+      "total": 12
+    }
+  },
+  "summary_by_risk_area": {
+    "Contract": {
+      "pass": 22,
+      "fail": 2,
+      "not_evaluated": 0,
+      "total": 24
+    },
+    "Isolation": {
+      "pass": 14,
+      "fail": 7,
+      "not_evaluated": 0,
+      "total": 21
+    },
+    "Grounding": {
+      "pass": 13,
+      "fail": 5,
+      "not_evaluated": 0,
+      "total": 18
+    },
+    "Answer meaning": {
+      "pass": 9,
+      "fail": 8,
+      "not_evaluated": 0,
+      "total": 17
+    },
+    "Resilience": {
+      "pass": 12,
+      "fail": 1,
+      "not_evaluated": 10,
+      "total": 23
+    },
+    "Validation": {
+      "pass": 1,
+      "fail": 0,
+      "not_evaluated": 0,
+      "total": 1
+    }
+  },
+  "designed_tests": [
+    {
+      "id": "D-01",
+      "requirement": "Identity required",
+      "priority": "P1",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    },
+    {
+      "id": "D-02",
+      "requirement": "Unknown identity",
+      "priority": "P1",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    },
+    {
+      "id": "D-03",
+      "requirement": "Real calendar date",
+      "priority": "P2",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    },
+    {
+      "id": "D-04",
+      "requirement": "Date format",
+      "priority": "P2",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    },
+    {
+      "id": "D-05",
+      "requirement": "Upper boundary",
+      "priority": "P1",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    },
+    {
+      "id": "D-06",
+      "requirement": "Retrieved injection",
+      "priority": "P1",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    },
+    {
+      "id": "D-07",
+      "requirement": "Other tenant positive",
+      "priority": "P2",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    },
+    {
+      "id": "D-08",
+      "requirement": "Role gap",
+      "priority": "P2",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    },
+    {
+      "id": "D-09",
+      "requirement": "Malformed provider",
+      "priority": "P1",
+      "status": "NOT_RUN",
+      "needs": "live endpoint + fault-injecting provider stub (malformed)"
+    },
+    {
+      "id": "D-10",
+      "requirement": "Provider unavailable",
+      "priority": "P1",
+      "status": "NOT_RUN",
+      "needs": "live endpoint + fault-injecting provider stub (refuse connection)"
+    },
+    {
+      "id": "D-11",
+      "requirement": "Timeout bound",
+      "priority": "P1",
+      "status": "NOT_RUN",
+      "needs": "live endpoint + fault-injecting provider stub (2500 ms delay)"
+    },
+    {
+      "id": "D-12",
+      "requirement": "Balance claim",
+      "priority": "P2",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    },
+    {
+      "id": "D-13",
+      "requirement": "Pre-corpus date",
+      "priority": "P3",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    },
+    {
+      "id": "D-14",
+      "requirement": "Draft never surfaces",
+      "priority": "P1",
+      "status": "NOT_RUN",
+      "needs": "live endpoint (BASE_URL)"
+    }
+  ]
+}
